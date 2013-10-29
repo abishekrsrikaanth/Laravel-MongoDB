@@ -1,11 +1,15 @@
 {
-    "name": "jenssegers/mongodb",
+    "name": "abishekrsrikaanth/mongodb",
     "description": "A MongoDB based Eloquent model and Query builder for Laravel 4",
     "keywords": ["laravel","eloquent","mongodb","mongo","database","model"],
     "authors": [
         {
             "name": "Jens Segers",
             "email": "hello@jenssegers.be"
+        },
+        {
+            "name": "Laravel-MongoDB Contributors",
+            "email": "https://github.com/abishekrsrikaanth/Laravel-MongoDB/graphs/contributors"
         }
     ],
     "license" : "MIT",
@@ -16,8 +20,8 @@
         "illuminate/events": "4.x"
     },
     "require-dev": {
-        "illuminate/cache": "4.0.x",
-        "illuminate/auth": "4.0.x"
+        "illuminate/cache": "4.x",
+        "illuminate/auth": "4.x"
     },
     "autoload": {
         "psr-0": {
