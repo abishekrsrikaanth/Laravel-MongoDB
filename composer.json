@@ -8,8 +8,8 @@
             "email": "hello@jenssegers.be"
         },
         {
-            "name": "Laravel-MongoDB Contributors",
-            "email": "https://github.com/abishekrsrikaanth/Laravel-MongoDB/graphs/contributors"
+            "name": "Abishek",
+            "homepage": "https://github.com/abishekrsrikaanth/Laravel-MongoDB/graphs/contributors"
         }
     ],
     "license" : "MIT",
