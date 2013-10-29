@@ -297,7 +297,7 @@ class Builder extends \Illuminate\Database\Query\Builder {
      * @param  bool  $not
      * @return \Illuminate\Database\Query\Builder|static
      */
-    public function orWhereBetween($column, $values, $not = false)
+    public function orWhereBetween($column, array $values, $not = false)
     {
         return $this->whereBetween($column,$values,'or',$not);
     }
