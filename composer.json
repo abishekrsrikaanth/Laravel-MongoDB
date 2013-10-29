@@ -1,6 +1,6 @@
 {
     "name": "abishekrsrikaanth/mongodb",
-    "description": "A MongoDB based Eloquent model and Query builder for Laravel 4",
+    "description": "A MongoDB based Eloquent model and Query builder for Laravel 4.1",
     "keywords": ["laravel","eloquent","mongodb","mongo","database","model"],
     "authors": [
         {
