@@ -290,6 +290,43 @@ class Builder extends \Illuminate\Database\Query\Builder {
     }
 
     /**
+     * Add an or where between statement to the query.
+     *
+     * @param  string  $column
+     * @param  array   $values
+     * @param  bool  $not
+     * @return \Illuminate\Database\Query\Builder|static
+     */
+    public function orWhereBetween($column, $values, $not = false)
+    {
+        return $this->whereBetween($column,$values,'or',$not);
+    }
+    /**
+     * Add a where not between statement to the query.
+     *
+     * @param  string  $column
+     * @param  array   $values
+     * @param  string  $boolean
+     * @return \Illuminate\Database\Query\Builder|static
+     */
+    public function whereNotBetween($column, array $values, $boolean = 'and')
+    {
+        return $this->whereBetween($column, $values, $boolean, true);
+    }
+
+    /**
+     * Add an or where not between statement to the query.
+     *
+     * @param  string  $column
+     * @param  array   $values
+     * @return \Illuminate\Database\Query\Builder|static
+     */
+    public function orWhereNotBetween($column, array $values)
+    {
+        return $this->whereNotBetween($column, $values, 'or');
+    }
+
+    /**
      * Insert a new record into the database.
      *
      * @param  array  $values
