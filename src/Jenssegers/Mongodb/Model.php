@@ -116,43 +116,50 @@ abstract class Model extends \Illuminate\Database\Eloquent\Model {
     /**
      * Define a one-to-one relationship.
      *
-     * @param  string  $related
-     * @param  string  $foreignKey
+     * @param  string $related
+     * @param  string $foreignKey
+     * @param null    $localKey
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function hasOne($related, $foreignKey = null)
+    public function hasOne($related, $foreignKey = null, $localKey = null)
     {
         $foreignKey = $foreignKey ?: $this->getForeignKey();
 
         $instance = new $related;
 
-        return new HasOne($instance->newQuery(), $this, $foreignKey);
+        return new HasOne($instance->newQuery(), $this, $foreignKey, $localKey);
     }
 
     /**
      * Define a one-to-many relationship.
      *
-     * @param  string  $related
-     * @param  string  $foreignKey
+     * @param  string $related
+     * @param  string $foreignKey
+     * @param null    $localKey
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function hasMany($related, $foreignKey = null)
+    public function hasMany($related, $foreignKey = null, $localKey = null)
     {
         $foreignKey = $foreignKey ?: $this->getForeignKey();
 
         $instance = new $related;
 
-        return new HasMany($instance->newQuery(), $this, $foreignKey);
+        return new HasMany($instance->newQuery(), $this, $foreignKey, $localKey);
     }
 
     /**
      * Define an inverse one-to-one or many relationship.
      *
-     * @param  string  $related
-     * @param  string  $foreignKey
+     * @param  string $related
+     * @param  string $foreignKey
+     * @param null    $otherKey
+     * @param null    $relation
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function belongsTo($related, $foreignKey = null)
+    public function belongsTo($related, $foreignKey = null, $otherKey = null, $relation = null)
     {
         list(, $caller) = debug_backtrace(false);
 
@@ -173,7 +180,7 @@ abstract class Model extends \Illuminate\Database\Eloquent\Model {
 
         $query = $instance->newQuery();
 
-        return new BelongsTo($query, $this, $foreignKey, $relation);
+        return new BelongsTo($query, $this, $foreignKey, $relation, $otherKey, $relation);
     }
 
     /**
